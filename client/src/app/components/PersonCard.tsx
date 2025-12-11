@@ -19,7 +19,14 @@ export default function PersonCard({ person, open }: Props) {
       <CardContent sx={{ display: "flex", alignItems: "center", gap: 2 }}>
         <Avatar src={person.photoPath || undefined} />
         <Box>
-          <Typography fontWeight={600}>{person.name}</Typography>
+          <Typography
+            sx={{
+              fontFamily: "Arial, sans-serif !important",
+              fontWeight: "700 !important",
+            }}
+          >
+              {person.name}
+          </Typography>
           <Typography variant="body2">{person.jobTitle}</Typography>
         </Box>
       </CardContent>
