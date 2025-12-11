@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
+    "rootDir": "../server/src",
+    "outDir": "../server/dist",
 
     "target": "ES2022",
     "module": "commonjs",
@@ -12,9 +12,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
 
-    "baseUrl": "./src",
+    "baseUrl": "../server/src",
     "paths": {
-      "@/*": ["*"]
+      "@/": [""]
     },
 
     "isolatedModules": false,

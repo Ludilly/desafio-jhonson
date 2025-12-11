@@ -3,7 +3,7 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get("/", employeeController.getAll);
+router.get("/employees", employeeController.getAll);
 
 export default router;
 

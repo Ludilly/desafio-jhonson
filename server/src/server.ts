@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import employeeRoutes from "../src/routes/employeeRoutes";
+import employeeRoutes from "./routes/employeeRoutes";
 
 dotenv.config();
 
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   res.send("API online 🚀");
 });
 
-app.use("/employees", employeeRoutes);
+app.use("/", employeeRoutes);
 
 const PORT = Number(process.env.PORT);
 
