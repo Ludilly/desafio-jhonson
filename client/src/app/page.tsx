@@ -32,22 +32,23 @@ export default function HierarchyPage() {
 
 
   return (
-    <main style={{ padding: 32 }}>
+    <main>
       <Header />
+      <div style={{ padding: 32 }}>
+        <Filters
+          people={people}
+          onDepartmentChange={setDepartment}
+          onManagerChange={setManager}
+          onTypeChange={setType}
+          onStatusChange={setStatus}
+        />
 
-      <Filters
-        people={people}
-        onDepartmentChange={setDepartment}
-        onManagerChange={setManager}
-        onTypeChange={setType}
-        onStatusChange={setStatus}
-      />
-
-      <OrgTree
-        people={filteredPeople}
-        department={department}
-        hasFilters={hasFilters}
-      />
+        <OrgTree
+          people={filteredPeople}
+          department={department}
+          hasFilters={hasFilters}
+        />
+      </div>
     </main>
   );
 }
