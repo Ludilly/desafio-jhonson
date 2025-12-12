@@ -47,8 +47,8 @@ export default function HierarchyPage() {
       {
         !people ?? 
         <Box sx={{ display: 'flex' }}>
-        <CircularProgress />
-      </Box>
+          <CircularProgress />
+        </Box>
       }
       <Header />
       <div style={{ padding: 32 }}>
