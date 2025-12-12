@@ -12,7 +12,7 @@ export default function Header() {
         </h1>
         <p className={styles.headerSubtitle}>Our organizational tree</p>
       </div>
-      
+    
       <div className={styles.headerImageContainer}>
         <Image
           src="/img.png"
