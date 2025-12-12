@@ -6,6 +6,7 @@ import OrgTree from "./components/OrgTree";
 import { peopleService } from "./service/peopleService";
 import { Person } from "./types";
 import Header from "./components/Header";
+import { Box, CircularProgress } from "@mui/material";
 
 export default function HierarchyPage() {
   const [people, setPeople] = useState<Person[]>([]);
@@ -43,6 +44,12 @@ export default function HierarchyPage() {
 
   return (
     <main>
+      {
+        !people ?? 
+        <Box sx={{ display: 'flex' }}>
+        <CircularProgress />
+      </Box>
+      }
       <Header />
       <div style={{ padding: 32 }}>
         <Filters

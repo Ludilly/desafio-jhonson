@@ -14,7 +14,7 @@ interface Props {
 }
 
 export default function OrgTree({ people, hasFilters, manager }: Props) {
-  if (!people || people.length === 0) return <div>No results</div>;
+  if (!people || people.length === 0) return <div>No results found</div>;
 
   const buildTree = (person: Person) => {
     const children = people
