@@ -19,7 +19,7 @@ export default function HierarchyPage() {
     peopleService.getAll().then(setPeople);
   }, []);
 
-  const filteredPeople = people.filter((p) => {
+  let filteredPeople = people.filter((p) => {
     if (department && p.department !== department) return false;
     if (manager && String(p.managerId) !== manager) return false;
     if (type && p.type !== type) return false;
@@ -27,9 +27,19 @@ export default function HierarchyPage() {
     return true;
   });
 
-  const hasFilters =
-  department !== "" || manager !== "" || type !== "" || status !== "";
+  if (manager) {
+    const managerIdNum = Number(manager);
+    const managerPerson = people.find((p) => p.id === managerIdNum);
+    if (managerPerson) {
+      const alreadyIncluded = filteredPeople.some((p) => p.id === managerIdNum);
+      if (!alreadyIncluded) {
+        filteredPeople = [managerPerson, ...filteredPeople];
+      }
+    }
+  }
 
+  const hasFilters =
+    department !== "" || manager !== "" || type !== "" || status !== "";
 
   return (
     <main>
@@ -45,8 +55,9 @@ export default function HierarchyPage() {
 
         <OrgTree
           people={filteredPeople}
-          department={department}
           hasFilters={hasFilters}
+          manager={manager}
+          department={department}
         />
       </div>
     </main>

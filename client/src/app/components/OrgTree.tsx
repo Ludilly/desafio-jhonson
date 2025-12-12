@@ -8,41 +8,13 @@ import { SimpleTreeView } from "@mui/x-tree-view/SimpleTreeView";
 
 interface Props {
   people: Person[];
-  department?: string;
   hasFilters?: boolean;
+  manager?: string;
+  department?: string;
 }
 
-export default function OrgTree({ people, hasFilters }: Props) {
+export default function OrgTree({ people, hasFilters, manager }: Props) {
   if (!people || people.length === 0) return <div>No results</div>;
-
-  if (!hasFilters) {
-    const realRoot = people.find((p) => p.managerId === null);
-    if (!realRoot) return <div>Root employee not found</div>;
-
-    const buildTree = (person: Person) => {
-      const children = people
-        .filter((p) => p.managerId === person.id)
-        .map((child) => buildTree(child));
-
-      return (
-        <OrgNode key={person.id} person={person}>
-          {children}
-        </OrgNode>
-      );
-    };
-
-    return (
-      <SimpleTreeView
-        slots={{
-          collapseIcon: ExpandMoreIcon,
-          expandIcon: ChevronRightIcon,
-        }}
-        sx={{ padding: 2 }}
-      >
-        {buildTree(realRoot)}
-      </SimpleTreeView>
-    );
-  }
 
   const buildTree = (person: Person) => {
     const children = people
@@ -56,22 +28,60 @@ export default function OrgTree({ people, hasFilters }: Props) {
     );
   };
 
-  const topLevel = people.filter(
-    (p) => p.managerId === null || !people.some((x) => x.id === p.managerId)
-  );
+  if (!hasFilters) {
+    const realRoot = people.find((p) => p.managerId === null);
+    if (!realRoot) return <div>Root employee not found</div>;
+
+    return (
+      <SimpleTreeView
+        slots={{ collapseIcon: ExpandMoreIcon, expandIcon: ChevronRightIcon }}
+        sx={{ padding: 2 }}
+      >
+        {buildTree(realRoot)}
+      </SimpleTreeView>
+    );
+  }
+
+ 
+  if (manager) {
+    const managerIdNum = Number(manager);
+    const selectedManager = people.find((p) => p.id === managerIdNum);
+
+    if (selectedManager) {
+      return (
+        <SimpleTreeView
+          slots={{ collapseIcon: ExpandMoreIcon, expandIcon: ChevronRightIcon }}
+          sx={{ padding: 2 }}
+        >
+          {buildTree(selectedManager)}
+        </SimpleTreeView>
+      );
+    }
+  }
+
+  const rootCandidates = people.filter((p) => !people.some((x) => x.id === p.managerId));
+
+  if (rootCandidates.length === 1) {
+    const root = rootCandidates[0];
+    return (
+      <SimpleTreeView
+        slots={{ collapseIcon: ExpandMoreIcon, expandIcon: ChevronRightIcon }}
+        sx={{ padding: 2 }}
+      >
+        {buildTree(root)}
+      </SimpleTreeView>
+    );
+  }
 
   return (
     <SimpleTreeView
-      slots={{
-        collapseIcon: ExpandMoreIcon,
-        expandIcon: ChevronRightIcon,
-      }}
+      slots={{ collapseIcon: ExpandMoreIcon, expandIcon: ChevronRightIcon }}
       sx={{ padding: 2 }}
     >
       <OrgNode
         person={{
           id: -1,
-          name: "Filtered results",
+          name: "Filtered Results",
           department: "",
           managerId: null,
           type: "Employee",
@@ -80,7 +90,7 @@ export default function OrgTree({ people, hasFilters }: Props) {
           status: "Active",
         }}
       >
-        {topLevel.map((t) => buildTree(t))}
+        {rootCandidates.map((root) => buildTree(root))}
       </OrgNode>
     </SimpleTreeView>
   );

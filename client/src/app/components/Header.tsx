@@ -11,10 +11,10 @@ export default function Header() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "80px 60px 120px", // mais padding embaixo para não cortar o texto
+        padding: "80px 60px 120px",
         color: "#FFFFFF",
         position: "relative",
-        overflow: "visible", // permite a imagem sair pra fora
+        overflow: "visible",
       }}
     >
       <div style={{ maxWidth: "50%" }}>
@@ -43,7 +43,6 @@ export default function Header() {
         </p>
       </div>
 
-      {/* Wrapper para permitir overflow */}
       <div
         style={{
           width: "50%",

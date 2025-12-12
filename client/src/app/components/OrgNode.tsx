@@ -15,7 +15,7 @@ interface Props {
 
 export default function OrgNode({ person, children }: Props) {
   const [open, setOpen] = useState(false);
-
+  console.log('órgnode',person)
   return (
     <TreeItem
       itemId={String(person.id)}

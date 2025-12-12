@@ -6,6 +6,7 @@ interface Props {
 }
 
 export default function PersonDetails({ person }: Props) {
+  console.log('person', person)
   return (
     <Box sx={{ pl: 4, py: 2 }}>
       <Box sx={{ display: 'flex', flexDirection: 'row' }}>

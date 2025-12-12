@@ -26,7 +26,6 @@ export default function Filters({
   const [status, setStatus] = useState("");
 
   const departments = [...new Set(people.map((p) => p.department))];
-
   const managers = people.filter((p) =>
     people.some((child) => child.managerId === p.id)
   );
