@@ -53,7 +53,7 @@ export default function HierarchyPage() {
           minHeight: "100vh",
         }}
       >
-        <CircularProgress color={`error`} size={60} />
+        <CircularProgress color={'error'} size={60} />
       </Box>
     );
   }
