@@ -64,7 +64,6 @@ export default function Header() {
           }
         }
       `}</style>
-
       <header className="header-container">
         <div className="header-content">
           <h1 className="header-title">
