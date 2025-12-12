@@ -79,6 +79,15 @@ Tecnologias utilizadas:
 * **Material UI (MUI)** para design system responsivo
 * **TypeScript**
 
+### ▶️ Como rodar localmente
+
+Instalar dependências e iniciar o servidor:
+
+```
+npm install
+npm run dev
+```
+
 ### 🌲 Funcionalidade Principal
 
 Foi construída uma **árvore organizacional (Org Tree)** com filtros de:
