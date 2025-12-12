@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import Filters from "./components/Filters";
 import OrgTree from "./components/OrgTree";
@@ -10,14 +9,16 @@ import { Box, CircularProgress } from "@mui/material";
 
 export default function HierarchyPage() {
   const [people, setPeople] = useState<Person[]>([]);
-
+  const [loading, setLoading] = useState(true);
   const [department, setDepartment] = useState("");
   const [manager, setManager] = useState("");
   const [type, setType] = useState("");
   const [status, setStatus] = useState("");
 
   useEffect(() => {
-    peopleService.getAll().then(setPeople);
+    peopleService.getAll()
+      .then(setPeople)
+      .finally(() => setLoading(false));
   }, []);
 
   let filteredPeople = people.filter((p) => {
@@ -42,14 +43,23 @@ export default function HierarchyPage() {
   const hasFilters =
     department !== "" || manager !== "" || type !== "" || status !== "";
 
+  if (loading) {
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+        }}
+      >
+        <CircularProgress color={'error'} size={60} />
+      </Box>
+    );
+  }
+
   return (
     <main>
-      {
-        !people ?? 
-        <Box sx={{ display: 'flex' }}>
-          <CircularProgress />
-        </Box>
-      }
       <Header />
       <div style={{ padding: 32 }}>
         <Filters
@@ -59,7 +69,6 @@ export default function HierarchyPage() {
           onTypeChange={setType}
           onStatusChange={setStatus}
         />
-
         <OrgTree
           people={filteredPeople}
           hasFilters={hasFilters}
