@@ -17,7 +17,7 @@ export default function PersonCard({ person, open }: Props) {
       }}
     >
       <CardContent sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-        <Avatar src={person.photoPath || undefined} />
+        <Avatar src='/businesswoman.png' />
         <Box>
           <Typography
             sx={{
