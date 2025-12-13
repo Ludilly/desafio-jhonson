@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { Person } from "../types";
+import { Person } from "@/app/types";
 
 interface Props {
   people: Person[];
