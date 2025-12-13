@@ -2,9 +2,9 @@
 import { useState } from "react";
 import { TreeItem } from "@mui/x-tree-view/TreeItem";
 import { Collapse, Box } from "@mui/material";
-import { Person } from "../types";
-import PersonCard from "./PersonCard";
-import PersonDetails from "./PersonDetails";
+import { Person } from "../../types";
+import PersonCard from "../PersonCard";
+import PersonDetails from "../PersonDetails";
 
 interface Props {
   person: Person;

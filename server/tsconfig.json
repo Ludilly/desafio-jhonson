@@ -1,26 +1,26 @@
-{
-  "compilerOptions": {
-    "rootDir": "../server/src",
-    "outDir": "../server/dist",
+  {
+    "compilerOptions": {
+      "rootDir": "../server/src",
+      "outDir": "../server/dist",
 
-    "target": "ES2022",
-    "module": "commonjs",
-    "moduleResolution": "node",
+      "target": "ES2022",
+      "module": "commonjs",
+      "moduleResolution": "node",
 
-    "types": ["node"],
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+      "types": ["node", "jest"],
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
 
-    "baseUrl": "../server/src",
-    "paths": {
-      "@/": [""]
-    },
+      "baseUrl": "../server/src",
+      "paths": {
+        "@/": [""]
+      },
 
-    "isolatedModules": false,
+      "isolatedModules": false,
 
-    "sourceMap": true,
-    "declaration": false,
-    "declarationMap": false
+      "sourceMap": true,
+      "declaration": false,
+      "declarationMap": false
+    }
   }
-}

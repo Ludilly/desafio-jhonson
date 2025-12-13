@@ -2,8 +2,8 @@
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { Person } from "../types";
-import OrgNode from "./OrgNode";
+import { Person } from "../../types";
+import OrgNode from "../OrgNode";
 import { SimpleTreeView } from "@mui/x-tree-view/SimpleTreeView";
 
 interface Props {
