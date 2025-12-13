@@ -1,5 +1,5 @@
+import { Person } from "@/app/types";
 import { Box, Typography } from "@mui/material";
-import { Person } from "../types";
 
 interface Props {
   person: Person;

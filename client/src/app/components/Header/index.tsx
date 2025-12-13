@@ -8,7 +8,7 @@ export default function Header() {
       <div className={styles.headerContent}>
         <h1 className={styles.headerTitle}>
           Your health. <br />
-          Your choice.
+          Our mission.
         </h1>
         <p className={styles.headerSubtitle}>Our organizational tree</p>
       </div>

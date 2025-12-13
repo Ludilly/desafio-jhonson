@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import Filters from "./components/Filters";
 import OrgTree from "./components/OrgTree";
 import { peopleService } from "./service/peopleService";
 import { Person } from "./types";
 import Header from "./components/Header";
 import { Box, CircularProgress } from "@mui/material";
+import Filters from "./components/Filters";
 
 export default function HierarchyPage() {
   const [people, setPeople] = useState<Person[]>([]);
