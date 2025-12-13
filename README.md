@@ -2,6 +2,8 @@
 
 Este repositório documenta a solução desenvolvida para o desafio fullstack da **Johnson & Johnson**, contendo um backend (**server**) e um frontend (**client**), além das configurações de banco e deploy.
 
+Importante, a branch atualizada é a main
+
 ---
 
 ## 🗂️ Estrutura do Projeto
