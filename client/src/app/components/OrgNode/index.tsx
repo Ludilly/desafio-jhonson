@@ -21,9 +21,10 @@ export default function OrgNode({ person, children }: Props) {
 
   return (
     <TreeItem
+      onClick={handleToggle}
       itemId={String(person.id)}
       label={
-        <Box onClick={handleToggle} sx={{ cursor: "pointer" }}>
+        <Box sx={{ cursor: "pointer" }}>
           <PersonCard person={person} open={open} />
         </Box>
       }
